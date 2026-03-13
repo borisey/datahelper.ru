@@ -14,8 +14,8 @@ $this->title = 'My Yii Application';
 
         <div class="row">
             <div class="col-lg-12 mb-3">
-                <?php foreach ($addrObjs as $addrObj): ?>
-                    <p><?= $addrObj->NAME ?></p>
+                <?php foreach ($addresses as $address): ?>
+                    <p><?= $address ?></p>
                 <?php endforeach; ?>
             </div>
         </div>
