@@ -58,14 +58,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $addrObjs = AddrObj::find()->limit(1)->one();
-
-        echo '<pre>';
-        print_r($addrObjs);
-        die();
+        $addrObjs = AddrObj::find()->limit(10)->all();
 
         $params = [
-            $addrObjs => $addrObjs,
+            'addrObjs' => $addrObjs,
         ];
 
         return $this->render('index', $params);
