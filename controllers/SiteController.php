@@ -52,12 +52,12 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
+    {
+        return $this->render('index');
+    }
+
+    public function actionMain()
     {
         $addrObjs = AddrObj::find()
             ->where(['ISACTIVE' => 1])
@@ -96,13 +96,10 @@ class SiteController extends Controller
             $addresses[] = implode(', ', array_reverse($parts));
         }
 
-//        print_r($addresses);
-//        die();
-
         $params = [
-            'addresses' => $addresses
+            'addresses' => $addresses ?? [],
         ];
 
-        return $this->render('index', $params);
+        return $this->render('main', $params);
     }
 }
