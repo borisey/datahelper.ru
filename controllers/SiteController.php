@@ -2,150 +2,18 @@
 
 namespace app\controllers;
 
-use app\models\AddrObj;
-use app\models\AdmHierarchy;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+use app\controllers\actions\site\IndexAction;
+use app\controllers\actions\site\MainAction;
+use app\controllers\actions\site\withMysqlIndexes;
 
-class SiteController extends Controller
+class SiteController extends AbstractController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function actions()
     {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            'index'              => IndexAction::class,      // site/index
+            'main'               => MainAction::class,       // site/main
+            'with-mysql-indexes' => WithMysqlIndexes::class, // site/with-mysql-indexes
         ];
-    }
-
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    public function actionMain()
-    {
-        $addrObjs = AddrObj::find()
-            ->where(['ISACTIVE' => 1])
-            ->limit(10)
-            ->orderBy(['id' => SORT_ASC])
-            ->all();
-
-        $addresses = [];
-
-        foreach ($addrObjs as $addrObj) {
-
-            $parts = [];
-            $current = $addrObj->OBJECTID;
-
-            while ($current) {
-
-                $addr = AddrObj::find()
-                    ->where(['OBJECTID' => $current])
-                    ->andWhere(['ISACTIVE' => 1])
-                    ->one();
-
-                if (!$addr) {
-                    break;
-                }
-
-                $parts[] = $addr->NAME . ' ' . $addr->TYPENAME;
-
-                $parent = AdmHierarchy::find()
-                    ->select('PARENTOBJID')
-                    ->where(['OBJECTID' => $current])
-                    ->scalar();
-
-                $current = $parent;
-            }
-
-            $addresses[] = implode(', ', array_reverse($parts));
-        }
-
-        $params = [
-            'addresses' => $addresses ?? [],
-        ];
-
-        return $this->render('main', $params);
-    }
-
-    public function actionWithMysqlIndexes()
-    {
-        $addrObjs = AddrObj::find()
-            ->where(['ISACTIVE' => 1])
-            ->limit(10)
-            ->orderBy(['id' => SORT_ASC])
-            ->all();
-
-        $addresses = [];
-
-        foreach ($addrObjs as $addrObj) {
-
-            $parts = [];
-            $current = $addrObj->OBJECTID;
-
-            while ($current) {
-
-                $addr = AddrObj::find()
-                    ->where(['OBJECTID' => $current])
-                    ->andWhere(['ISACTIVE' => 1])
-                    ->one();
-
-                if (!$addr) {
-                    break;
-                }
-
-                $parts[] = $addr->NAME . ' ' . $addr->TYPENAME;
-
-                $parent = AdmHierarchy::find()
-                    ->select('PARENTOBJID')
-                    ->where(['OBJECTID' => $current])
-                    ->scalar();
-
-                $current = $parent;
-            }
-
-            $addresses[] = implode(', ', array_reverse($parts));
-        }
-
-        $params = [
-            'addresses' => $addresses ?? [],
-        ];
-
-        return $this->render('with-mysql-indexes', $params);
     }
 }
