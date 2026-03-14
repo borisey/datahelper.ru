@@ -61,7 +61,8 @@ class SiteController extends Controller
     {
         $addrObjs = AddrObj::find()
             ->where(['ISACTIVE' => 1])
-            ->limit(3)
+            ->limit(10)
+            ->orderBy(['id' => SORT_ASC])
             ->all();
 
         $addresses = [];
