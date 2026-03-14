@@ -102,4 +102,50 @@ class SiteController extends Controller
 
         return $this->render('main', $params);
     }
+
+    public function actionWithMysqlIndexes()
+    {
+        $addrObjs = AddrObj::find()
+            ->where(['ISACTIVE' => 1])
+            ->limit(10)
+            ->orderBy(['id' => SORT_ASC])
+            ->all();
+
+        $addresses = [];
+
+        foreach ($addrObjs as $addrObj) {
+
+            $parts = [];
+            $current = $addrObj->OBJECTID;
+
+            while ($current) {
+
+                $addr = AddrObj::find()
+                    ->where(['OBJECTID' => $current])
+                    ->andWhere(['ISACTIVE' => 1])
+                    ->one();
+
+                if (!$addr) {
+                    break;
+                }
+
+                $parts[] = $addr->NAME . ' ' . $addr->TYPENAME;
+
+                $parent = AdmHierarchy::find()
+                    ->select('PARENTOBJID')
+                    ->where(['OBJECTID' => $current])
+                    ->scalar();
+
+                $current = $parent;
+            }
+
+            $addresses[] = implode(', ', array_reverse($parts));
+        }
+
+        $params = [
+            'addresses' => $addresses ?? [],
+        ];
+
+        return $this->render('with-mysql-indexes', $params);
+    }
 }

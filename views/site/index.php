@@ -44,7 +44,7 @@ $this->title = 'My Yii Application';
                         <td>2</td>
                         <td>Добавлены индексы в MySQL</td>
                         <td>
-                            <a href="<?= Url::to(['site/main']) ?>">
+                            <a href="<?= Url::to(['site/with-mysql-indexes']) ?>">
                                 Ссылка
                             </a>
                         </td>
