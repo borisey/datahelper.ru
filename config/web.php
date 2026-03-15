@@ -1,7 +1,8 @@
 <?php
 
-$params = require __DIR__ . '/params.php';
-$db     = require __DIR__ . '/db.php';
+$params            = require __DIR__ . '/params.php';
+$db                = require __DIR__ . '/db.php';
+$db_fias_optimized = require __DIR__ . '/db_fias_optimized.php';
 
 $config = [
     'id'        => 'basic',
@@ -43,7 +44,8 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'db'                => $db,
+        'db_fias_optimized' => $db_fias_optimized,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

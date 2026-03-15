@@ -2,15 +2,15 @@
 
 namespace app\controllers\actions\site;
 
-use app\models\AddrObj;
-use app\models\AdmHierarchy;
+use app\models\fias_optimized\AddrObjFiasOptimized;
+use app\models\fias_optimized\AdmHierarchyFiasOptimized;
 use yii\base\Action;
 
-class withMysqlIndexes extends Action
+class WithMysqlIndexes extends Action
 {
     public function run(): string
     {
-        $addrObjs = AddrObj::find()
+        $addrObjs = AddrObjFiasOptimized::find()
             ->where(['ISACTIVE' => 1])
             ->limit(10)
             ->orderBy(['id' => SORT_ASC])
@@ -25,7 +25,7 @@ class withMysqlIndexes extends Action
 
             while ($current) {
 
-                $addr = AddrObj::find()
+                $addr = AddrObjFiasOptimized::find()
                     ->where(['OBJECTID' => $current])
                     ->andWhere(['ISACTIVE' => 1])
                     ->one();
@@ -36,7 +36,7 @@ class withMysqlIndexes extends Action
 
                 $parts[] = $addr->NAME . ' ' . $addr->TYPENAME;
 
-                $parent = AdmHierarchy::find()
+                $parent = AdmHierarchyFiasOptimized::find()
                     ->select('PARENTOBJID')
                     ->where(['OBJECTID' => $current])
                     ->scalar();
