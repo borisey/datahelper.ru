@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\controllers\actions\site\IndexAction;
 use app\controllers\actions\site\MainAction;
-use app\controllers\actions\site\withMysqlIndexes;
+use app\controllers\actions\site\WithMysqlIndexes;
 
 class SiteController extends AbstractController
 {
