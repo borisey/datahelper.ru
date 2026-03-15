@@ -37,7 +37,7 @@ $this->title = 'My Yii Application';
                             </a>
                         </td>
                         <td>
-                            ~47ms
+                            ~39,000ms
                         </td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@ $this->title = 'My Yii Application';
                             </a>
                         </td>
                         <td>
-
+                            ~100ms
                         </td>
                     </tr>
                 </table>
