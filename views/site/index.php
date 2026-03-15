@@ -25,31 +25,33 @@ $this->title = 'My Yii Application';
                     <tr>
                         <th>ID</th>
                         <th>Наименование</th>
-                        <th>URL</th>
                         <th>Скорость загрузки страницы</th>
+                        <th>Результат оптимизации</th>
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td>Базовая страница (без оптимизации)</td>
                         <td>
                             <a href="<?= Url::to(['site/main']) ?>">
-                                Ссылка
+                                Базовая страница (без оптимизации)</td>
                             </a>
-                        </td>
                         <td>
                             ~39,000ms
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Добавлены индексы в MySQL</td>
                         <td>
                             <a href="<?= Url::to(['site/with-mysql-indexes']) ?>">
-                                Ссылка
+                                Добавлены индексы в MySQL
                             </a>
                         </td>
                         <td>
                             ~100ms
+                        </td>
+                        <td>
+                            <p>39000 / 100 = 390</p>
+                            <p>Скорость сайта увеличилась в 390 раз</p>
                         </td>
                     </tr>
                 </table>
