@@ -10,8 +10,39 @@ use yii\helpers\Url;
     <div class="jumbotron text-center bg-transparent mt-5 mb-5">
         <h1 class="display-4">Адреса</h1>
 
-        <h2>Оптимизация на уровне MySQL</h2>
     </div>
+
+    <h2>2 Оптимизация на уровне фреймворка Yii2</h2>
+
+    <div class="body-content">
+
+        <div class="row">
+            <div class="col-lg-12 mb-3">
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Наименование</th>
+                        <th>Скорость загрузки страницы</th>
+                        <th>Результат оптимизации</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <h2>3 Оптимизация на уровне MySQL</h2>
 
     <div class="body-content">
 
@@ -53,6 +84,66 @@ use yii\helpers\Url;
                 </table>
             </div>
         </div>
-
     </div>
+
+    <h2>4 Оптимизация на уровне фронтенда</h2>
+
+    <div class="body-content">
+
+        <div class="row">
+            <div class="col-lg-12 mb-3">
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Наименование</th>
+                        <th>Скорость загрузки страницы</th>
+                        <th>Результат оптимизации</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <h2>5 Инфраструктурные методы оптимизации</h2>
+
+    <div class="body-content">
+
+        <div class="row">
+            <div class="col-lg-12 mb-3">
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Наименование</th>
+                        <th>Скорость загрузки страницы</th>
+                        <th>Результат оптимизации</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
