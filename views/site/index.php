@@ -27,13 +27,21 @@ use yii\helpers\Url;
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td><td>
+                        <td>
+                            <a href="<?= Url::to(['site/index-full-dev']) ?>">
+                                Без минификации и объединения CSS/JS через Asset Bundle
+                            </a>
+                        <td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td></td>
+                        <td>
+                            <a href="<?= Url::to(['site/index-min-prod']) ?>">
+                                C минификацией и объединением CSS/JS через Asset Bundle
+                            </a>
+                        <td>
                         <td></td>
                         <td></td>
                     </tr>

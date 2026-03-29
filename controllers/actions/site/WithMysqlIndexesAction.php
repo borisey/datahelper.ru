@@ -6,7 +6,7 @@ use app\models\fias_optimized\AddrObjFiasOptimized;
 use app\models\fias_optimized\AdmHierarchyFiasOptimized;
 use yii\base\Action;
 
-class WithMysqlIndexes extends Action
+class WithMysqlIndexesAction extends Action
 {
     public function run(): string
     {

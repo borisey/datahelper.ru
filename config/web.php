@@ -15,6 +15,11 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'assetManager' => [
+            'bundles' => YII_ENV_DEV
+                ? []
+                : require __DIR__ . '/../assets-prod.php',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'kFuXAIbnf6m9AMxj0F8XUj9S6fm8wmXg',

@@ -12,6 +12,8 @@ return [
         'app\assets\AppAsset',
         'yii\web\YiiAsset',
         'yii\web\JqueryAsset',
+        'yii\bootstrap5\BootstrapAsset',
+        'yii\bootstrap5\BootstrapPluginAsset',
     ],
 
     'targets' => [
