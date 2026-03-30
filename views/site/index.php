@@ -14,6 +14,8 @@ use yii\helpers\Url;
 
     <h2>2 Оптимизация на уровне фреймворка Yii2</h2>
 
+    <h3>Минификация и объединение CSS/JS через Asset Bundle</h3>
+
     <div class="body-content">
 
         <div class="row">
@@ -51,6 +53,8 @@ use yii\helpers\Url;
     </div>
 
     <h2>3 Оптимизация на уровне MySQL</h2>
+
+    <h3>Создание индексов</h3>
 
     <div class="body-content">
 
