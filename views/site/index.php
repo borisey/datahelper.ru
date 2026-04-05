@@ -41,7 +41,7 @@ use yii\helpers\Url;
                         <td>2</td>
                         <td>
                             <a href="<?= Url::to(['site/index-min-prod']) ?>">
-                                C минификацией и объединением CSS/JS через Asset Bundle
+                                Страница с минификацией и объединением CSS/JS через Asset Bundle
                             </a>
                         </td>
                         <td>~92 мс</td>
