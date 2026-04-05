@@ -31,10 +31,10 @@ use yii\helpers\Url;
                         <td>1</td>
                         <td>
                             <a href="<?= Url::to(['site/index-full-dev']) ?>">
-                                Без минификации и объединения CSS/JS через Asset Bundle
+                                Исходная страница (без минификации и объединения CSS/JS через Asset Bundle)
                             </a>
-                        <td>
-                        <td></td>
+                        </td>
+                        <td>~290 мс</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -43,9 +43,12 @@ use yii\helpers\Url;
                             <a href="<?= Url::to(['site/index-min-prod']) ?>">
                                 C минификацией и объединением CSS/JS через Asset Bundle
                             </a>
+                        </td>
+                        <td>~92 мс</td>
                         <td>
-                        <td></td>
-                        <td></td>
+                            <p>290 / 92 = 3,15</p>
+                            <p>Скорость сайта увеличилась примерно в три раза</p>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -71,10 +74,11 @@ use yii\helpers\Url;
                         <td>1</td>
                         <td>
                             <a href="<?= Url::to(['site/main']) ?>">
-                                Базовая страница (без оптимизации)</td>
+                                Базовая страница (без оптимизации)
                             </a>
+                        </td>
                         <td>
-                            ~39,000ms
+                            ~39,000 мс
                         </td>
                         <td></td>
                     </tr>
@@ -86,11 +90,11 @@ use yii\helpers\Url;
                             </a>
                         </td>
                         <td>
-                            ~40ms
+                            ~40 мс
                         </td>
                         <td>
                             <p>39000 / 40 = 975</p>
-                            <p>Скорость сайта увеличилась в 975 раз</p>
+                            <p>Скорость сайта увеличилась примерно в 975 раз</p>
                         </td>
                     </tr>
                 </table>
