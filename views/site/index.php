@@ -129,7 +129,7 @@ use yii\helpers\Url;
                         <td>2</td>
                         <td>
                             <a href="<?= Url::to(['site/with-lazy-loading']) ?>">
-                                Оптимизироваанная страница (с Lazy Loading)
+                                Оптимизированная страница (с Lazy Loading)
                             </a>
                         </td>
                         <td></td>
