@@ -117,13 +117,21 @@ use yii\helpers\Url;
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td></td>
+                        <td>
+                            <a href="<?= Url::to(['site/without-lazy-loading']) ?>">
+                                Исходная страница (без Lazy Loading)
+                            </a>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td></td>
+                        <td>
+                            <a href="<?= Url::to(['site/with-lazy-loading']) ?>">
+                                Оптимизироваанная страница (с Lazy Loading)
+                            </a>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
